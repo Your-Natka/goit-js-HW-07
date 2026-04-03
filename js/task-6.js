@@ -9,18 +9,7 @@ function getRandomHexColor() {
     .padStart(6, 0)}`;
 }
 
-createBtn.addEventListener("click", () => {
-  const amount = Number(input.value);
-
-  if (amount < 1 || amount > 100) return;
-
-  destroyBoxes();
-  createBoxes(amount);
-  input.value = "";
-});
-
-destroyBtn.addEventListener("click", destroyBoxes);
-
+// Функція створення елементів
 function createBoxes(amount) {
   const elements = [];
   let size = 30;
@@ -40,6 +29,21 @@ function createBoxes(amount) {
   boxes.append(...elements);
 }
 
+// Функція очищення контейнера
 function destroyBoxes() {
   boxes.innerHTML = "";
 }
+
+// Обробник кнопки Create
+createBtn.addEventListener("click", () => {
+  const amount = Number(input.value);
+
+  if (amount < 1 || amount > 100) return;
+
+  destroyBoxes();
+  createBoxes(amount);
+  input.value = "";
+});
+
+// Обробник кнопки Destroy
+destroyBtn.addEventListener("click", destroyBoxes);
